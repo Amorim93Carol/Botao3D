@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botão 3D</title>
+
+    <style>
+        :root{
+            --color: #ffe9e9;
+            --color-border: #d7a1a1;
+            --color-dark: #df8c8cae;
+            --color-text: #b67272ae;
+        }
+        .c-button a{
+            text-decoration: none;
+            color: var(--color-text);
+        }
+        .c-button{
+            background: var(--color);
+            border-radius: 50px;
+            border: 0;
+            border: 3px solid var(--color-border);
+            color: var(--color-text);
+            cursor: pointer;
+            font-weight: bold;
+            outline: none;
+            position: relative;
+            text-transform: uppercase;
+            transform-style: preserve-3d;
+            transition: all 150ms cubic-bezier(.175, .855, .32, 1.275);
+            padding: .7em 1.7em;
+        }
+
+        .c-button::before{
+            background: var(--color-dark);
+            border-radius: inherit;
+            box-shadow: 0 0 0 2px var(--color-border);
+            content: '';
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            transform: translate3d(0, .75em, -1em);
+            transition: all 150ms cubic-bezier(.175, .885, .32, 1.275);
+            width: 100%;
+        }
+
+        .c-button:hover{
+            transform: translate(0, .25em);
+            
+        }
+        .c-button:hover::before{
+            box-shadow: 0 0 0 2px var(--color-border);
+            transform: translate3d(0, .5em, -1em);
+        }
+
+        .c-button:active{
+            background: var(--color);
+            transform: translate(0, .75em);
+        }
+        .c-button:active::before{
+            box-shadow: 0 0 0 3px var(--color-border);
+            transform: translate3d(0, 0, -1em);
+        }
+    </style>
+</head>
+<body>
+    <button class="c-button">botão</button>
+    <button class="c-button"><a href="">link</a></button>
+</body>
+</html>
